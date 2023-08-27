@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ContactManager</name>
+    </assembly>
+    <members>
+        <member name="T:ContactManager.ContactRecord">
+            <summary>
+            holds contact record object that contains contact record filename 
+            and methods for saving/loading contacts/notes from file
+            </summary>
+        </member>
+        <member name="M:ContactManager.ContactRecord.#ctor">
+            <summary>
+            Constructor - empty
+            </summary>
+        </member>
+        <member name="P:ContactManager.ContactRecord.FileName">
+            <summary>
+            Filename of text file where contact details are saved in
+            </summary>
+        </member>
+        <member name="M:ContactManager.ContactRecord.SaveContacts(System.ComponentModel.BindingList{ContactManager.Contact})">
+            <summary>
+            Save all contacts into a file and each contact's notes into separate files
+            </summary>
+            <param name="ContactList">list of contacts</param>
+        </member>
+        <member name="M:ContactManager.ContactRecord.LoadContacts(System.ComponentModel.BindingList{ContactManager.Contact})">
+            <summary>
+            Retrieve contacts and notes from files and populate list
+            </summary>
+            <param name="ContactList">list of contacts</param>
+        </member>
+        <member name="M:ContactManager.ContactRecord.OverwriteFile(System.String)">
+            <summary>
+            Clears all text in file
+            </summary>
+            <param name="FileName">contact's photo filename</param>
+        </member>
+        <member name="T:ContactManager.FormAddContact">
+            <summary>
+            form that accepts user input for a new contact or editing an existing contact
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormAddContact.#ctor">
+            <summary>
+            Constructor - form that accepts user input for contact info
+            </summary>
+        </member>
+        <member name="P:ContactManager.FormAddContact.ContactInfo">
+            <summary>
+            string containing all contact info entered by user
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormAddContact.Edit(ContactManager.Contact)">
+            <summary>
+            fills fields with info of currently selected contact  
+            </summary>
+            <param name="SelectedContact"></param>
+        </member>
+        <member name="M:ContactManager.FormAddContact.btnSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            adds all contact info to a string delimited by |
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ContactManager.FormAddContact.btnAddPhoto_Click(System.Object,System.EventArgs)">
+            <summary>
+            Lets user choose a picture for the contact
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:ContactManager.FormAddContact.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormAddContact.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ContactManager.FormAddContact.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ContactManager.Contact">
+            <summary>
+            holds contact objects with contact info and methods for editing contacts and adding notes
+            </summary>
+        </member>
+        <member name="M:ContactManager.Contact.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor - creates contact with user provided info for:
+            first and last name, picture, address, email and phone
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="photoFileName"></param>
+            <param name="addressType"></param>
+            <param name="street"></param>
+            <param name="city"></param>
+            <param name="province"></param>
+            <param name="zip"></param>
+            <param name="emailType"></param>
+            <param name="email"></param>
+            <param name="phoneType"></param>
+            <param name="phone"></param>
+        </member>
+        <member name="P:ContactManager.Contact.NoteList">
+            <summary>
+            creates a list of notes for a contact
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.FirstName">
+            <summary>
+            contact's first name; required
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.LastName">
+            <summary>
+            contact's last name; required
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.PhotoFileName">
+            <summary>
+            user selected image file filename; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.AddressType">
+            <summary>
+            business/personal; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.Street">
+            <summary>
+            contact's street address; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.City">
+            <summary>
+            contact's city; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.Province">
+            <summary>
+            contact's province; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.Zip">
+            <summary>
+            contact's ZIP code; format N1N 1N1 required; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.Email">
+            <summary>
+            contact's email; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.EmailType">
+            <summary>
+            business/personal; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.Phone">
+            <summary>
+            contact's phone number; format (111) 111-1111 required; optional
+            </summary>
+        </member>
+        <member name="P:ContactManager.Contact.PhoneType">
+            <summary>
+            business/personal; optional
+            </summary>
+        </member>
+        <member name="M:ContactManager.Contact.ToString">
+            <summary>
+            ToString override for lstContacts
+            </summary>
+            <returns>last name, first name</returns>
+        </member>
+        <member name="M:ContactManager.Contact.OverwriteContact(System.Text.StringBuilder)">
+            <summary>
+            updates contact fields 
+            </summary>
+        </member>
+        <member name="M:ContactManager.Contact.AddNote(System.ComponentModel.BindingList{ContactManager.Contact},System.String,System.String,System.Int32)">
+            <summary>
+            adds note to contact's note list
+            </summary>
+            <param name="ContactList">list of contacts</param>
+            <param name="noteText">text of note</param>
+            <param name="noteDate">time when note was taken</param>
+            <param name="currentContact">currently selected contact in lstContacts</param>
+        </member>
+        <member name="T:ContactManager.FormContactManager">
+            <summary>
+            form that shows contact info and notes;
+            allows for adding/editing contacts and adding notes;
+            writes all info to file upon exit
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormContactManager.#ctor">
+            <summary>
+            Constructor - creates form list of contacts and binds it to lstContacts
+            </summary>
+        </member>
+        <member name="P:ContactManager.FormContactManager.ContactList">
+            <summary>
+            list of contacts; tied to lstContacts
+            </summary>
+        </member>
+        <member name="P:ContactManager.FormContactManager.SelectedContact">
+            <summary>
+            currently selected contact in lstContacts
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormContactManager.DisplayChildForm">
+            <summary>
+            Displays FormAddContact in add contact mode if edit is false; 
+            displays form in edit mode otherwise
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormContactManager.DisplayContactInfo">
+            <summary>
+            Displays info of currently selected contact in lstContacts;
+            displays blank fields and default contact picture if fields empty
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormContactManager.DisplayNotes">
+            <summary>
+            Displays current contact's notes from newest to oldest
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormContactManager.btnAddContact_Click(System.Object,System.EventArgs)">
+            <summary>
+            opens FormAddContact and lets user enters contact info
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ContactManager.FormContactManager.btnEditContact_Click(System.Object,System.EventArgs)">
+            <summary>
+            opens FormAddContact in edit mode
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ContactManager.FormContactManager.lstContacts_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            updates boxes with info of currently selected contact
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ContactManager.FormContactManager.btnAddNote_Click(System.Object,System.EventArgs)">
+            <summary>
+            Adds note to contact's note list
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ContactManager.FormContactManager.FormContactManager_Load(System.Object,System.EventArgs)">
+            <summary>
+            Loads contacts and notes
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ContactManager.FormContactManager.FormContactManager_Close(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            Saves contacts and notes when FormContactManager is closed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:ContactManager.FormContactManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ContactManager.FormContactManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ContactManager.FormContactManager.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ContactManager.Note">
+            <summary>
+            holds separate note objects for a contact
+            </summary>
+        </member>
+        <member name="M:ContactManager.Note.#ctor(System.String,System.String)">
+            <summary>
+            Constructor - creates note with user provided text and current timestamp
+            </summary>
+            <param name="noteText">text of note</param>
+            <param name="noteDate">date note was taken</param>
+        </member>
+        <member name="P:ContactManager.Note.NoteDate">
+            <summary>
+            date when note was recorded
+            </summary>
+        </member>
+        <member name="P:ContactManager.Note.NoteText">
+            <summary>
+            usuer inputted note for a contact
+            </summary>
+        </member>
+        <member name="M:ContactManager.Note.ToString">
+            <summary>
+            ToString override for txtNotes
+            </summary>
+            <returns>date and text</returns>
+        </member>
+        <member name="M:ContactManager.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:ContactManager.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ContactManager.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ContactManager.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:ContactManager.Properties.Resources.iconfinder_Artboard_18_3030707">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ContactManager.Properties.Resources.iconfinder_Artboard_18_30307071">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
